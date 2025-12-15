@@ -1,3 +1,4 @@
+
 class Task{
     constructor(description, status){
        this.description = description;
@@ -72,3 +73,16 @@ function drawAllCards(){
 }
 
 drawAllCards();
+
+document.getElementById('task-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const description = document.getElementById('task-description').value;
+    const status = document.getElementById('task-status').value;
+    
+    tasks.push(new Task(description, status));
+    
+    drawAllCards();
+    
+    document.getElementById('task-description').value = '';
+});
